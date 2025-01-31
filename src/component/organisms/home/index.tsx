@@ -21,15 +21,10 @@ export const Home = (props: IHomeProps) => {
             });
 
             setData(tempData);
-            console.log(tempData); 
         };
 
         getData();
     },[]);
-
-    const handleImageError = () => {
-        return require(`../../../assets/icons/ETH.svg`)
-    }
 
     return (
         <div className="flex grow bg-gray-700 overflow-x-hidden">
@@ -50,14 +45,18 @@ export const Home = (props: IHomeProps) => {
                                 <tbody>
                                     {
                                         data?.map((item: { wallet: string; data: any; }, index: number) => {
-                                            console.log(`../../../assets/icons/${item?.data?.symbol}.svg`);
+                                            console.log(item?.data?.symbol);
                                             return (
                                                 <tr key={index} className="border-b border-neutral-200 dark:border-white/10">
                                                     <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                                                        <img 
-                                                            src={require(`../../../assets/icons/${item?.data?.symbol}.svg`)} 
-                                                            onError={handleImageError}
-                                                        />
+
+                                                        {
+                                                            item?.data?.symbol === "0FP0EXP" ? 
+                                                                <img 
+                                                                    src={`../../../assets/icons/${item?.data?.symbol}.svg`}
+                                                                /> : null
+                                                        }
+                                                  
                                                     </td>
                                                     <td className="px-6 py-4 text-white">{item?.wallet}</td>
                                                     <td className="whitespace-nowrap px-6 py-4 text-white">{item?.data?.last_price}</td>
