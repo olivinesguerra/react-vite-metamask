@@ -8,34 +8,31 @@ interface ITabProps {
 };
 
 export const Tab = (props: ITabProps) => {
-
-
     return (
-        <div className="flex grow flex-col w-full">
-            <div className="flex flex-row justify-around items-center mb-[10px]">
+        <div className="flex w-full flex-col">
+            <div className="flex flex-row mb-[20px]  w-full justify-around">
+
                 {
                     props?.titles?.map((title: string, index: number) => {
                         return (
                             <button 
                                 key={index} 
+                                className="flex w-full p-[10px] mr-[5px] bg-black text-white text-center "
                                 onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                                     e?.preventDefault();
-
                                     props?.onTabChange(index);
                                 }}
-                                className="flex w-full p-[20px] mr-[10px] text-black text-center">
-                                    {title}
+                            >
+                                {title}
                             </button>
                         );
                     })
                 }
             </div>
-
-            <div className="flex grow bg-black w-full">
-                { props?.component }
+            <div className="flex grow">
+                {props?.component}
             </div>
-
-           
         </div>
     );
-};
+}
+
