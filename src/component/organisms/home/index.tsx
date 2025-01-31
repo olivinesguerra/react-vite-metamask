@@ -3,6 +3,7 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 import _ from "lodash";
 
+
 interface IHomeProps {}
 export const Home = (props: IHomeProps) => {
 
@@ -26,6 +27,9 @@ export const Home = (props: IHomeProps) => {
         getData();
     },[]);
 
+    const handleImageError = () => {
+        return require(`../../../assets/icons/ETH.svg`)
+    }
 
     return (
         <div className="flex grow bg-gray-700 overflow-x-hidden">
@@ -46,10 +50,14 @@ export const Home = (props: IHomeProps) => {
                                 <tbody>
                                     {
                                         data?.map((item: { wallet: string; data: any; }, index: number) => {
+                                            console.log(`../../../assets/icons/${item?.data?.symbol}.svg`);
                                             return (
                                                 <tr key={index} className="border-b border-neutral-200 dark:border-white/10">
                                                     <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
-                                                        <img src={`../../../assets/icons/${item?.data?.symbol}.svg`} />
+                                                        <img 
+                                                            src={require(`../../../assets/icons/${item?.data?.symbol}.svg`)} 
+                                                            onError={handleImageError}
+                                                        />
                                                     </td>
                                                     <td className="px-6 py-4 text-white">{item?.wallet}</td>
                                                     <td className="whitespace-nowrap px-6 py-4 text-white">{item?.data?.last_price}</td>
