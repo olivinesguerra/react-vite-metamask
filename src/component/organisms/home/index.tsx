@@ -32,32 +32,36 @@ export const Home = (props: IHomeProps) => {
             <div className="flex grow flex-col">
                 <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                    <div className="overflow-hidden">
-                        <table className="min-w-full text-left text-sm font-light text-surface dark:text-white">
-                        <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
-                            <tr>
-                            <th scope="col" className="px-6 py-4">#</th>
-                            <th scope="col" className="px-6 py-4">First</th>
-                            <th scope="col" className="px-6 py-4">Last</th>
-                            <th scope="col" className="px-6 py-4">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                data?.map((item: { wallet: string; data: any; }, index: number) => {
-                                    return (
-                                        <tr className="border-b border-neutral-200 dark:border-white/10">
-                                            <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                                            <td className="whitespace-nowrap px-6 py-4">Mark</td>
-                                            <td className="whitespace-nowrap px-6 py-4">Otto</td>
-                                            <td className="whitespace-nowrap px-6 py-4">@mdo</td>
-                                        </tr>
-                                    );
-                                })
-                            }
-                        </tbody>
-                        </table>
-                    </div>
+                        <div className="overflow-hidden">
+                            <table className="min-w-full text-left text-sm font-light text-surface dark:text-white">
+                                <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-4 text-orange-400">Icon</th>
+                                        <th scope="col" className="px-6 py-4 text-orange-400">Wallet</th>
+                                        <th scope="col" className="px-6 py-4 text-orange-400">Last Price</th>
+                                        <th scope="col" className="px-6 py-4 text-orange-400">Maker Fee</th>
+                                        <th scope="col" className="px-6 py-4 text-orange-400">Taker Fee</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        data?.map((item: { wallet: string; data: any; }, index: number) => {
+                                            return (
+                                                <tr key={index} className="border-b border-neutral-200 dark:border-white/10">
+                                                    <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
+                                                        <img src={`../../../assets/icons/${item?.data?.symbol}.svg`} />
+                                                    </td>
+                                                    <td className="px-6 py-4 text-white">{item?.wallet}</td>
+                                                    <td className="whitespace-nowrap px-6 py-4 text-white">{item?.data?.last_price}</td>
+                                                    <td className="whitespace-nowrap px-6 py-4 text-white">{item?.data?.maker_fee}</td>
+                                                    <td className="whitespace-nowrap px-6 py-4 text-white">{item?.data?.taker_fee}</td>
+                                                </tr>
+                                            );
+                                        })
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
