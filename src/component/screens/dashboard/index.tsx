@@ -9,7 +9,6 @@ export const Dashboard = (props: IDashboardProps) => {
     const [tab, setTab] = useState<number>(0);
 
     const getComponent = () => {
-        console.log(tab);
         if (tab === 0) {
             return (<Organisms.Home />);
         }
@@ -18,7 +17,7 @@ export const Dashboard = (props: IDashboardProps) => {
     }
 
     return (
-        <div className="flex grow bg-gray-900 p-[20px] overflow-y-clip">
+        <div className="flex grow p-[20px] overflow-y-clip">
             <Bosons.Tab
                 titles={["Home", "Wallet"]}
                 tab={tab}

@@ -15,7 +15,7 @@ export const Tab = (props: ITabProps) => {
                         return (
                             <button 
                                 key={index} 
-                                className="flex grow text-center p-[10px] mr-[5px] bg-gray-900 text-black"
+                                className="flex grow text-center p-[10px] mr-[5px] bg-black"
                                 onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                                     e?.preventDefault();
                                     props?.onTabChange(index);
