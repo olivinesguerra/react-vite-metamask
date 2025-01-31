@@ -1,5 +1,6 @@
 
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 
 import * as Bosons from "../../bosons";
 import * as Organisms from "../../organisms"
@@ -7,6 +8,7 @@ import * as Organisms from "../../organisms"
 interface IDashboardProps {}
 export const Dashboard = (props: IDashboardProps) => {
     const [tab, setTab] = useState<number>(0);
+
 
     const getComponent = () => {
         if (tab === 0) {
