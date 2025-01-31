@@ -45,15 +45,15 @@ export const Home = (props: IHomeProps) => {
                                 <tbody>
                                     {
                                         data?.map((item: { wallet: string; data: any; }, index: number) => {
-                                            console.log(item?.data?.symbol);
                                             return (
                                                 <tr key={index} className="border-b border-neutral-200 dark:border-white/10">
                                                     <td className="whitespace-nowrap px-6 py-4 font-medium text-white">
 
                                                         {
-                                                            item?.data?.symbol === "0FP0EXP" ? 
+                                                            item?.data?.symbol !== "0FP0EXP" ? 
                                                                 <img 
-                                                                    src={`../../../assets/icons/${item?.data?.symbol}.svg`}
+                                                                    src={new URL(`../../../assets/icons/${item?.data?.symbol}.svg`, import.meta.url).href}
+                                                                    className="h-[30px] w-[30px]"
                                                                 /> : null
                                                         }
                                                   

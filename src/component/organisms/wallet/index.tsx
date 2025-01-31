@@ -9,7 +9,7 @@ import Web3 from "web3";
 
 interface IWalletProps {};
 export const Wallet = (props: IWalletProps) => {
-    const { address, isConnected, chain } = useAccount();
+    const { address, isConnected } = useAccount();
     const { connectors, connect, isPending } = useConnect();
     const { disconnect } = useDisconnect();
 
@@ -27,6 +27,8 @@ export const Wallet = (props: IWalletProps) => {
        
         if (balance) {
             setBalance(balance);
+        } else {
+            setBalance(null);
         }
     };
 
