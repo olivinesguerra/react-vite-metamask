@@ -17,7 +17,7 @@ export const Dashboard = (props: IDashboardProps) => {
     }
 
     return (
-        <div className="flex grow p-[20px] overflow-y-clip">
+        <div className="flex grow p-[20px] overflow-y-clip bg-gray-700">
             <Bosons.Tab
                 titles={["Home", "Wallet"]}
                 tab={tab}

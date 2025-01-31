@@ -28,7 +28,7 @@ export const Home = (props: IHomeProps) => {
 
 
     return (
-        <div className="flex grow">
+        <div className="flex grow bg-gray-700">
             {/* <Table hoverable>
                 <Table.Head>
                     <Table.HeadCell>Avatar</Table.HeadCell>
